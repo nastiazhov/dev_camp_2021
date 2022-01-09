@@ -1,3 +1,4 @@
+import React from 'react';
 import { UserPost } from '../../components/userPost'
 
 export function UserPostContainer({ name, age, location, avatar, postPicture, text, postInfo }) {
@@ -6,10 +7,6 @@ export function UserPostContainer({ name, age, location, avatar, postPicture, te
 
   return (
     <UserPost
-      name={name}
-      age={age}
-      location={location}
-      avatar={avatar}
       postPicture={postPicture}
       text={text}
       views={views}

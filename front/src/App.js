@@ -1,13 +1,16 @@
+import React, { useState } from 'react';
 import './App.css';
-
-import { UserPostContainer } from './containers/userPost';
-
+import Header from './containers/header/headerContainer';
+import Body from './containers/body/bodyContainer';
 import user from './userData/userPost.json';
 
 export const App = () => {
+  const [page, currentPage] = useState('profile');
   return (
     <>
-      <UserPostContainer
+      <Header currentPage={currentPage} />
+      <Body 
+        page={page} 
         name={user.name}
         age={user.age}
         location={user.location}

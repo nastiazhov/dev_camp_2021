@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+header {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+header button {
+    margin-top: 20px;
+    margin-left: 15px;
+    border: none;
+    border-radius: 20px;
+    width: 100px;
+    height: 30px;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    cursor: pointer;
+    background: #335e7a;
+}
+
+header button:hover {
+    color: rgb(49, 57, 128);
+    background: #8cc9f1;
+}
