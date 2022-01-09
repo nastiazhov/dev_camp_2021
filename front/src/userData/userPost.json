@@ -1,0 +1,12 @@
+{
+    "name": "John Doe",
+    "age": 26,
+    "location": "San Francisco, California",
+    "avatar": "https://cdn-icons-png.flaticon.com/512/3011/3011270.png",
+    "postPicture": "https://www.flytap.com/-/media/Flytap/new-tap-pages/destinations/north-america/united-states/san-francisco/destinations-san-francisco-banner-mobile-1024x553.jpg",
+    "text": "The 1.7-mile-long Golden Gate Bridge, an icon of the San Francisco Bay region, connects the city of San Francisco to Marin County, California. At its completion in 1937, the suspension bridge was considered an engineering marvel—the longest main suspension bridge span in the world.",
+    "postInfo": {
+      "likes": 520,
+      "views": 1356
+    }
+  }
