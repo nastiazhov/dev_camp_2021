@@ -8,11 +8,12 @@ services:
     container_name: project_db
     env_file: ./.env
     environment:
+      POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes:
       - ./db_data:/var/lib/postgresql/data
     ports:
-      - $DB_LOCAL_PORT:$DB_DOCKER_PORT
+      - 5432:5432
 
   adminer:
     image: adminer
@@ -23,7 +24,8 @@ services:
       - 8080:8080
 
   web:
-    build: .
+    image: node:16
+    working_dir: /src
     volumes:
       - "./app:/src/app"
     command: npm run start:dev
