@@ -3,6 +3,7 @@ import './App.css';
 import { UserPost } from './components/userPost';
 import { AddArticle } from './components/addArticle';
 import { UserProfile } from './components/userProfile';
+import { DateRoute } from './components/dateRoute'
 import user from './userData/userPost.json';
 
 import {
@@ -50,7 +51,8 @@ export const App = () => {
               />
             )}
           />
-          {/* <Route path="/date/:date" element={<DateComp />} /> */}
+          
+          <Route path="/date/:date" element={<DateRoute />} />
 
           <Route 
             path="*" 
