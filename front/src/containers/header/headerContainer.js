@@ -1,12 +1,16 @@
 import React from 'react';
 import './headerContainer.css';
 
-const Header = ({ currentPage }) => (
+export function Header({ currentPage }) {
+    const COMPONENTS = {
+        ARTICLES: 'articles',
+        ADD_ARTICLE: 'addArticle',
+        PROFILE: 'profile',
+      };
+    
     <header>
-        <button type="button" onClick={() => currentPage('articles')}> Articles </button>
-        <button type="button" onClick={() => currentPage('addArticle')}> Add Article </button>
-        <button type="button" onClick={() => currentPage('profile')}> Profile </button>
+        <button type="button" onClick={() => currentPage(COMPONENTS.ARTICLES)}> Articles </button>
+        <button type="button" onClick={() => currentPage(COMPONENTS.ADD_ARTICLE)}> Add Article </button>
+        <button type="button" onClick={() => currentPage(COMPONENTS.PROFILE)}> Profile </button>
     </header>
-);
-
-export default Header;
+}
