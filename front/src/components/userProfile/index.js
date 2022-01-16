@@ -1,31 +1,26 @@
 import PropTypes from 'prop-types';
+import userProfileProps from '../propTypes/userProfileProps';
+import userProfileDefaultProps from '../propTypes/userProfileDefaultProps';
 import './userProfile.css';
 
 const UserProfile = ({
-  name,
+  fullName,
   age,
   location,
-  avatar
+  user,
 }) => {
   return (
     <div className="container">
-        <img src={avatar} alt="profile pic" className="avatar" />
-        <p>{name}</p>
+        {/* <img src={avatar} alt="profile pic" className="avatar" /> */}
+        <p>{fullName}</p>
         <p>{age}</p>
         <p>{location}</p>
+        <p>{JSON.stringify(user)}</p>
       </div>
   );
 };
 
-UserProfile.propTypes = {
-  name: PropTypes.string.isRequired,
-  age: PropTypes.number.isRequired,
-  location: PropTypes.string.isRequired,
-  avatar: PropTypes.string,
-};
-
-UserProfile.defaultProps = {
-  avatar: 'N/A',
-};
+UserProfile.propTypes = userProfileProps;
+UserProfile.defaultProps = userProfileDefaultProps;
 
 export default UserProfile;
