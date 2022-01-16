@@ -1,15 +1,16 @@
 import './userPost.css';
+import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 
-export function UserPost({
+const UserPost = ({
   postPicture,
   text,
   views,
   likes,
   dateCreated,
-}) {
+}) => {
   const params = useParams();
-
+  // throw Error; //checking errors 
   function isUpperLetters(string) {
     return /^[A-Z]+$/.test(string);
   }
@@ -88,4 +89,18 @@ export function UserPost({
   }
 
   return (<div>Page not found</div>);
-}
+};
+
+UserPost.propTypes = {
+  postPicture: PropTypes.string,
+  text: PropTypes.string.isRequired,
+  views: PropTypes.number.isRequired,
+  likes: PropTypes.number.isRequired,
+  dateCreated: PropTypes.string.isRequired,
+};
+
+UserPost.defaultProps = {
+  postPicture: 'N/A',
+};
+
+export default UserPost;
