@@ -1,5 +1,6 @@
 {
-    "name": "John Doe",
+    "fullName": "John Doe",
+    "name": "johndoe",
     "age": 26,
     "location": "San Francisco, California",
     "avatar": "https://cdn-icons-png.flaticon.com/512/3011/3011270.png",
