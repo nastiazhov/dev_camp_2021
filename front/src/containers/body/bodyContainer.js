@@ -1,7 +1,7 @@
 import React from 'react';
-import { UserPost } from '../../components/userPost'
+import UserPost from '../userPost'
 import { AddArticle } from '../../components/addArticle';
-import { UserProfile } from '../../components/userProfile';
+import UserProfile from '../../components/userProfile';
 
 export default function Body({ page, name, age, location, avatar, postPicture, text, postInfo }) {
     switch (page) {

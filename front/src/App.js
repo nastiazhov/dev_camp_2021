@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
-import UserPost from './components/userPost';
+import UserPost from './containers/userPost';
 import { AddArticle } from './components/addArticle';
 import UserProfile from './components/userProfile';
-import { DateRoute } from './components/dateRoute'
+import { DateRoute } from './containers/dateRoute'
 import user from './userData/userPost.json';
 import ErrorBoundary from './components/ErrorBoundary';
 

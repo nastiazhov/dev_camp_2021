@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import userProfileProps from '../propTypes/userProfileProps';
 import userProfileDefaultProps from '../propTypes/userProfileDefaultProps';
 import './userProfile.css';

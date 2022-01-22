@@ -1,16 +1,17 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-
-function getTodayDate() {
-  const today = new Date();
-  return `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
-}
+import { DateComponent } from '../../components/dateComponent/dateComponent';
 
 let year, month, day;
 
 export function DateRoute() {
   
   const params = useParams();
+
+  function getTodayDate() {
+    const today = new Date();
+    return `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+  }
 
   function isDateCorrect(string) {
     const arr = string.split('-');
@@ -23,10 +24,12 @@ export function DateRoute() {
 
   if (isDateCorrect(params.date)) {
     return (
-      <div>
-        <p>{`Date of request is ${`${year}-${month}-${day}`}`}</p>
-        <p>{`Today is ${getTodayDate()}`}</p>
-      </div>
+      <DateComponent
+        year={year}
+        month={month}
+        day={day}
+        today={getTodayDate()}
+      />
     );
   }
   return (<div>Page not found</div>);
