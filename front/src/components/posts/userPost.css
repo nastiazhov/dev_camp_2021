@@ -1,0 +1,26 @@
+.container {
+   width: 500px;
+   position: absolute;
+   top: 10%;
+   left: 20%;
+   border-radius: 10px;
+   padding: 10px;
+   transform: translateX(-50%);
+   background-color: #247781;
+   color: #ffffff;
+   font-size: 15px;
+}
+  
+ul, li {
+  list-style: none;
+  display: inline; 
+  margin-right: 40px; 
+}
+
+.container img {
+  width: 500px;
+}
+
+.container span {
+  margin-top: 10px;
+}
