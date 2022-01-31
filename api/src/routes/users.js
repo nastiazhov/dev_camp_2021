@@ -56,13 +56,9 @@ router.delete('/:UserID', async (req, res) => {
     }
 });
 
-router.get('/:UserID/posts', async (req, res) => {
+router.get('/:UserID/avatar', async (req, res) => {
     try {
-        const reqUserID = req.params.UserID;
-        const user = await db.select().from('Posts').where('UserID', reqUserID);
         const userAvatar = await serviceUsers.getUserAvatar(req.params.id);
-
-        res.status(200).json(user);
         res.status(200).sendFile(`${userAvatar[0].avatar}`, {root: path.dirname('')});
     } catch (err) {
         res.send('File not found');
