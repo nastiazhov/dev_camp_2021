@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import './App.css';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import UserPost from './containers/userPost';
-import { AddArticle } from './components/addArticle';
+import AddPost from './containers/posts/addPost';
+import EditPost from './containers/posts/editPost';
+import EditUser from './containers/users/editUser';
 import UserProfile from './components/userProfile';
 import { DateRoute } from './containers/dateRoute'
 import Posts from './containers/posts/posts';
@@ -45,8 +47,13 @@ export const App = () => {
               />
               
               <Route 
-                path="/articles/add_article" 
-                element={<AddArticle />} 
+                path="/posts/add_post" 
+                element={<AddPost />} 
+              
+              />
+              <Route 
+                path="/posts/:id/edit_post" 
+                element={<EditPost />} 
               />
 
               <Route 
@@ -60,6 +67,11 @@ export const App = () => {
               <Route 
                 path="/users/:id" 
                 element={<User />} 
+              />
+
+              <Route 
+                path="/users/:id/edit_user" 
+                element={<EditUser />} 
               />
               
               <Route

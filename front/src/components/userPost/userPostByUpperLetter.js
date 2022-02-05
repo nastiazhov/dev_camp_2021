@@ -1,6 +1,10 @@
 import './userPost.css';
 import userPostProps from '../propTypes/userPostProps';
 
+import {
+  Box,
+} from '@mui/material';
+
 export function UserPostByUpperLetter({
   id,
   postPicture,
@@ -10,7 +14,7 @@ export function UserPostByUpperLetter({
   dateCreated,
 }) {
   return (
-    <div className="container">
+    <Box sx={{ width: '55%' }} className="postsContainer">
         <p>{`ID by upper letters is ${id}`}</p>
         <img src={postPicture} alt="post pic" className="postPicture" />
         <p>{text}</p>
@@ -25,7 +29,7 @@ export function UserPostByUpperLetter({
           </li>
         </ul>
         <p>{dateCreated}</p>
-      </div>
+      </Box>
   );
 }
 

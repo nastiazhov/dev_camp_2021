@@ -13,7 +13,7 @@ const User = () => {
   if (Number.isInteger(Number(id))) {
         return (
       <>
-        {isFetching && <div>Loading your page...</div>}
+        {isFetching && <div>Loading...</div>}
         <DisplayUser users={user} />
       </>
     );

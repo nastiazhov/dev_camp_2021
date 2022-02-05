@@ -2,11 +2,16 @@ import React from 'react';
 import './userPost.css';
 import postsProps from '../propTypes/userPostProps';
 
+import { 
+  Box, 
+  Container 
+} from '@mui/material';
+
 export function DisplayPosts({
   posts,
 }) {
   return (
-    <div className="postsContainer">
+    <Container maxWidth="sm">
       {posts?.map(({
         id, 
         postPicture,
@@ -15,7 +20,7 @@ export function DisplayPosts({
         likes,
         dateCreated,
       }) => (
-        <div className="container">
+        <Box sx={{ width: '40%' }} className="postContainer">
             <p>{`ID is ${id}`}</p>
             <img src={postPicture} alt="post pic" className="postPicture" />
             <p>{text}</p>
@@ -30,9 +35,9 @@ export function DisplayPosts({
             </li>
             </ul>
             <p>{dateCreated}</p>
-      </div>
+        </Box>
       ))}
-    </div>
+     </Container>
   );
 }
 
