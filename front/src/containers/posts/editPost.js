@@ -7,6 +7,16 @@ import { getPost } from './api/crud';
 const EditPost = () => {
   const params = useParams();
   const { id } = params;
+  const options = [
+    { value: 'for all', label: 'All' },
+    { value: 'for friends', label: 'Friends' },
+    { value: 'for me', label: 'Me' },
+  ];
+
+  const getDefaultLabel = (optionsArr) => {
+    const optionsValueArr = optionsArr.map((e) => e.value);
+    return options[optionsValueArr.indexOf(post[0].availability)].label;
+  };
 
   if (Number.isInteger(Number(id))) {
     const {
@@ -21,7 +31,7 @@ const EditPost = () => {
         ) : status === 'error' ? (
           error.message
         ) : (
-          <EditPost post={post} />
+          <EditPost post={post} options={options} defaultLabel={getDefaultLabel(options)}/>
         )}
       </>
     );
