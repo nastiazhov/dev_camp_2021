@@ -7,3 +7,7 @@ export const getUsers = async (id) => {
 export const getUser = async (id) => {
     return apiClient.get(`/users/${id}`);
 }
+
+export const editUser = async (id, data) => {
+    apiClient.put(`/users/${id}`, data);
+}

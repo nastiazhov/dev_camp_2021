@@ -7,6 +7,7 @@ module.exports = {
       fullName: PropTypes.string.isRequired,
       age: PropTypes.number.isRequired,
       location: PropTypes.string.isRequired,
+      avatar: PropTypes.string,
     }),
   ),
 };

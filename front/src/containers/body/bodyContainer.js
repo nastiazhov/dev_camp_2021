@@ -1,6 +1,6 @@
 import React from 'react';
 import UserPost from '../userPost'
-import { AddArticle } from '../../components/addArticle';
+import { AddArticle } from '../../components/posts/addPost';
 import UserProfile from '../../components/userProfile';
 
 export default function Body({ page, name, age, location, avatar, postPicture, text, postInfo }) {

@@ -2,79 +2,48 @@ const router = require('express').Router();
 const serviceUsers = require('../services/users');
 const upload = require('../services/multer');
 const path = require('path');
+const asyncErrorHandler = require('../middlewares/asyncErrorHandler');
 
 module.exports = router;
 
-router.get('/', async (req, res) => {
-    try {
-        res.status(200).json(await serviceUsers.getAllUsers());
-    } catch (err) {
-        res.send(err);
-    }
-});
+router.get('/', asyncErrorHandler(async (req, res) => {
+    res.status(200).json(await serviceUsers.getAllUsers());
+}));
 
-router.get('/:UserID', async (req, res) => {
-    try {
-        res.status(200).json(await serviceUsers.getUserById(req.params.id));
-    } catch (err) {
-        res.send(err);
-    }
-});
+router.get('/:UserID', asyncErrorHandler(async (req, res) => {
+    res.status(200).json(await serviceUsers.getUserById(req.params.id));
+}));
 
-router.get('/:UserID/posts', async (req, res) => {
-    try {
-        res.status(200).json(await serviceUsers.getUserPosts(req.params.id));
-    } catch (err) {
-        res.send(err);
-    }
-});
+router.get('/:UserID/posts', asyncErrorHandler(async (req, res) => {
+    res.status(200).json(await serviceUsers.getUserPosts(req.params.id));
+}));
 
-router.post('/', async (req, res) => {
-    try {
-        await serviceUsers.createNewUser(req.body);
-        res.status(200).send('New user has been created');
-    } catch (err) {
-        res.send(err);
-    }
-});
+router.post('/', asyncErrorHandler(async (req, res) => {
+    await serviceUsers.createNewUser(req.body);
+    res.status(200).send('New user has been created');
+}));
 
-router.put('/:UserID', async (req, res) => {
-    try {
-        await serviceUsers.updateUser(req.params.id, req.body);
-        res.status(200).send('User information was updated');
-    } catch (err) {
-        res.send(err);
-    }
-});
+router.put('/:UserID', asyncErrorHandler(async (req, res) => {
+    await serviceUsers.updateUser(req.params.id, req.body);
+    res.status(200).send('User information was updated');
+}));
 
-router.delete('/:UserID', async (req, res) => {
-    try {
-        await serviceUsers.deleteUser(req.params.id);
-        res.status(200).send('User was successfully deleted');
-    } catch (err) {
-        res.send(err);
-    }
-});
+router.delete('/:UserID', asyncErrorHandler(async (req, res) => {
+    await serviceUsers.deleteUser(req.params.id);
+    res.status(200).send('User was successfully deleted');
+}));
 
-router.get('/:UserID/avatar', async (req, res) => {
-    try {
-        const userAvatar = await serviceUsers.getUserAvatar(req.params.id);
-        res.status(200).sendFile(`${userAvatar[0].avatar}`, {root: path.dirname('')});
-    } catch (err) {
-        res.send('File not found');
-    }
-});
+router.get('/:UserID/avatar', asyncErrorHandler(async (req, res) => {
+    const userAvatar = await serviceUsers.getUserAvatar(req.params.id);
+    res.status(200).sendFile(`${userAvatar[0].avatar}`, {root: path.dirname('')});
+}));
 
-router.post('/:UserID/avatar', upload.single('avatar'), async (req, res) => {
-    try {
-        if (req.file) {
-            await serviceUsers.uploadUserAvatar(req.params.id, req.file.path);
-            res.status(200).send('Avatar was successfully uploaded');
-        }
-        else {
-            res.send('File cannot be loaded');
-        }
-    } catch (err) {
-        res.send(err);
+router.post('/:UserID/avatar', upload.single('avatar'), asyncErrorHandler(async (req, res) => {
+    if (req.file) {
+        await serviceUsers.uploadUserAvatar(req.params.id, req.file.path);
+        res.status(200).send('Avatar was successfully uploaded');
     }
-});
+    else {
+        res.send('File cannot be loaded');
+    }
+}));
