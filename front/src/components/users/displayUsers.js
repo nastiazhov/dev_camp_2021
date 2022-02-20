@@ -14,6 +14,7 @@ export function DisplayUsers({
          fullName,
          age,
          location,
+         phone,
          avatar,
       }) => (
         <Grid item xs={5} className="userBlock">
@@ -23,6 +24,7 @@ export function DisplayUsers({
               <p>User ID {id}</p>
               <p>{fullName}</p>
               <p>{age}</p>
+              <p>{phone}</p>
               <p>{location}</p>
           </div>
           </Link>

@@ -17,6 +17,7 @@ export function DisplayUser({
           <p>User ID {id}</p>
           <p>{users[0].fullName}</p>
           <p>{users[0].age}</p>
+          <p>{users[0].phone}</p>
           <p>{users[0].location}</p>
         </div>
         <div className="infoRowTitle">Avatar:</div>
