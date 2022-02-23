@@ -1,6 +1,7 @@
 import React from 'react';
 import './userProfile.css';
 import usersProps from '../propTypes/usersProps';
+import authContext from '../../authContext';
 
 import {
   Grid, Box,
@@ -9,6 +10,11 @@ import {
 export function DisplayUser({
   users,
 }) {
+  const { authenticated, user: userData, setUserData } = useContext(authContext);
+  console.log(setUserData);
+  console.log('auth ', authenticated);
+  console.log('data ', userData);
+
   return (
     <Box sx={{ width: '80%' }} className="usersContainer">
       <Grid item xs={5} className="userBlock" id={users[0].userId}>
