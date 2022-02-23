@@ -3,6 +3,7 @@ const serviceUsers = require('../services/users');
 const upload = require('../services/multer');
 const path = require('path');
 const asyncErrorHandler = require('../middlewares/asyncErrorHandler');
+const authMiddleware = require('../middlewares/authMiddleware');
 
 module.exports = router;
 
@@ -18,7 +19,7 @@ router.get('/:UserID/posts', asyncErrorHandler(async (req, res) => {
     res.status(200).json(await serviceUsers.getUserPosts(req.params.id));
 }));
 
-router.post('/', asyncErrorHandler(async (req, res) => {
+router.post('/', authMiddleware, asyncErrorHandler(async (req, res) => {
     await serviceUsers.createNewUser(req.body);
     res.status(200).send('New user has been created');
 }));
