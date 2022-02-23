@@ -12,6 +12,7 @@ import Users from './containers/users/users';
 import User from './containers/users/user';
 import user from './userData/userPost.json';
 import ErrorBoundary from './components/ErrorBoundary';
+import authContext from './authContext';
 
 import {
   BrowserRouter,
@@ -22,9 +23,21 @@ import {
 const queryClient = new QueryClient();
 
 export const App = () => {
+
+  const [userData, setUserData] = useState({
+    authenticated: true,
+    user: {
+      userId: 1,
+      firstName: 'default name',
+      email: 'default@default.com',
+    },
+    setUserData: () => {},
+  });
+
   return (
     <div className="App">
       <QueryClientProvider client={queryClient}>
+      <authContext.Provider value={userData}>
         <ErrorBoundary>
           <BrowserRouter>
             <Routes>
@@ -168,6 +181,7 @@ export const App = () => {
             </Routes>
           </BrowserRouter>
         </ErrorBoundary>
+        </authContext.Provider>
       </QueryClientProvider>
     </div>
   );
